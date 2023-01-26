@@ -1,0 +1,16 @@
+name: TEST
+
+on: 
+  push:
+    branches: [master]
+
+jobs:
+  execute:
+    runs-on: ubuntu-latest
+    steps:
+      - name: "Checkout master"
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: "execute tests"
+        run: "make test"
